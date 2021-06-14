@@ -234,7 +234,7 @@ highest_tpr = test_df_metrics['true_positive_rate'].max()
 potential_models = test_df_metrics[test_df_metrics['false_negative_rate'] == lowest_fnr]
 potential_models = potential_models[potential_models['true_positive_rate'] == highest_tpr]
   
-potential_models.index = range(len(potential_models)) 
+potential_models.index = range(len(potential_models))
 
 # create potential models table
 max_table_rows = 10
@@ -288,11 +288,16 @@ model_table.auto_set_font_size(False)
 model_table.set_fontsize(table_fontsize)
 
 if save_files:
+    
+    # save potential_models dataframe
+    potential_models_filename = 'potential_models.csv'
+    potential_models.to_csv(output_dir + potential_models_filename)
+    
     # save potential models table
     potential_models_filename = 'potenital_models_table.png'
     #fig.savefig(plots_dir + potential_models_filename)        # this isn't working properly
 
-
+    
          
 
             
